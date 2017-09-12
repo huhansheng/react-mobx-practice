@@ -1,0 +1,13 @@
+{
+  "getUserInfo": {
+    "error": false,
+    "result": {
+      "userName": "handsome",
+      "age": 20,
+      "interest": "looking books、sport、music"
+    }
+  },
+  "updateUserInfo": {
+
+  }
+}
