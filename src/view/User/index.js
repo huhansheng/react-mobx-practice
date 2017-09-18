@@ -1,6 +1,6 @@
 import React from 'react';
 import { inject, observer } from "mobx-react";
-import './index.less';
+import _style from './index.css';
 import AppBar from 'material-ui/AppBar';
 import Menu from '../../component/Menu'
 import TabBar from '../../component/TabBar'
@@ -45,23 +45,27 @@ class User extends React.Component {
 
 	}
 
-    toInterest() {
+	toInterest() {
 
 	}
 
 
 	render() {
 		return (
-			<div className="container">
-				<AppBar
-					style={appBarSty}
-				    title="react + mobx"
-				    iconElementRight={<Menu menuItemList={navList} />}
-				/>
-				<div className="container-content">
+			<div className={_style.container}>
+				<div className={_style.containerNav}>
+					<AppBar
+						style={appBarSty}
+						title="react + mobx"
+						iconElementRight={<Menu menuItemList={navList} />}
+					/>
+				</div>
+
+				<div className={_style.containerContent}>
 					<ButtonGroup itemList={buttonList} onClick={this.onClickBtn.bind(this)} />
 				</div>
-				<div className="footer">
+
+				<div className={_style.footer}>
 					<TabBar defaultSelectedIndex={1} itemList={tabBarItems} />
 				</div>
 			</div>

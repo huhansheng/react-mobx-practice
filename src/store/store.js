@@ -2,8 +2,8 @@ import User from '../mobx/user';
 import About from '../mobx/about';
 
 const store = {
-    User,
-    About
+  User,
+  About
 };
 
 export default store;

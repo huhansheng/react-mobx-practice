@@ -3,8 +3,8 @@ import userService from '../service/user';
 
 class User {
 	@observable userName = 'hhs';
-	@observable list = [];
-	@observable user = null;
+	@observable list;
+	@observable user;
 
 	constructor() {
         autorun(() => {

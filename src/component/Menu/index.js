@@ -5,52 +5,52 @@ import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 const selectedSty = {
-    color: '#2196F3'
+  color: '#2196F3'
 };
 
 class Menu extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            value: 0
-        };
-    }
+    this.state = {
+      value: 0
+    };
+  }
 
-    onChangeItem(value) {
-        this.setState({ value });
-    }
+  onChangeItem(value) {
+    this.setState({ value });
+  }
 
-    createMenuItem() {
-        const menuItemList = this.props.menuItemList;
+  createMenuItem() {
+    const menuItemList = this.props.menuItemList;
 
-        const list = menuItemList.map((item) => {
-            const { label, value } = item;
+    const list = menuItemList.map((item) => {
+      const { label, value } = item;
 
-            return (
-                <MenuItem key={value} value={value} primaryText={label} />
-            );
-        });
+      return (
+        <MenuItem key={value} value={value} primaryText={label} />
+      );
+    });
 
-        return list;
-    }
+    return list;
+  }
 
-    render() {
-        const menuItemList = this.createMenuItem();
+  render() {
+    const menuItemList = this.createMenuItem();
 
-        return (
-            <IconMenu
-                onChange={this.onChangeItem.bind(this)}
-                value={this.state.value}
-                selectedMenuItemStyle={selectedSty}
-                iconButtonElement={
-                    <IconButton><MoreVertIcon color="#fff" /></IconButton>
+    return (
+      <IconMenu
+        onChange={this.onChangeItem.bind(this)}
+        value={this.state.value}
+        selectedMenuItemStyle={selectedSty}
+        iconButtonElement={
+          <IconButton><MoreVertIcon color="#fff" /></IconButton>
 			    }
-            >
-                { menuItemList }
-            </IconMenu>
-        );
-    }
+      >
+        { menuItemList }
+      </IconMenu>
+    );
+  }
 }
 
 export default Menu;
