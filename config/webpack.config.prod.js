@@ -138,6 +138,14 @@ module.exports = {
           // "url" loader works just like "file" loader but it also embeds
           // assets smaller than specified size as data URLs to avoid requests.
           {
+            test: /\.(woff|svg|eot|ttf)(\?.*)?$/,
+            loader: require.resolve('url-loader'),
+            options: {
+              limit: 10000,
+              name: 'static/fonts/[name].[hash:8].[ext]'
+            }
+          },
+          {
             test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
             loader: require.resolve('url-loader'),
             options: {

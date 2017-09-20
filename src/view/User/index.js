@@ -62,9 +62,12 @@ class User extends React.Component {
 				</div>
 
 				<div className={_style.containerContent}>
+					<span className={_style.icon}><i className="icon icon-zjjx"></i>icon svg</span> 
 					<ButtonGroup itemList={buttonList} onClick={this.onClickBtn.bind(this)} />
 				</div>
-
+				<div>
+					<i className="icon icon-zjjx"></i>icon svg 
+				</div>
 				<div className={_style.footer}>
 					<TabBar defaultSelectedIndex={1} itemList={tabBarItems} />
 				</div>

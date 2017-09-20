@@ -117,9 +117,15 @@ module.exports = {
         // match the requirements. When no loader matches it will fall
         // back to the "file" loader at the end of the loader list.
         oneOf: [
-          // "url" loader works like "file" loader except that it embeds assets
-          // smaller than specified limit in bytes as data URLs to avoid requests.
-          // A missing `test` is equivalent to a match.
+          // 必须放在前面，才能static/fonts下，否则到static/media下
+          {
+            test: /\.(woff|svg|eot|ttf)(\?.*)?$/,
+            loader: require.resolve('url-loader'),
+            options: {
+              limit: 10000,
+              name: 'static/fonts/[name].[hash:8].[ext]'
+            }
+          },
           {
             test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
             loader: require.resolve('url-loader'),
@@ -156,7 +162,7 @@ module.exports = {
                 options: {
                   importLoaders: 1,
 									modules: true,
-									localIndentName: "[name]__[local]___[hash:base64:5]"
+									localIdentName: "[name]__[local]___[hash:base64:5]"
 								},
               },
               {

@@ -35,5 +35,21 @@ Request.prototype.post = function (url, body = {}) {
   });
 };
 
+Request.prototype.put = function() {
+  return fetch(url, {
+    ...header,
+    method: 'put',
+    body: JSON.stringify(body)
+  });
+}
+
+Request.prototype.put = function() {
+  return fetch(url, {
+    ...header,
+    method: 'delete'
+  });
+}
+
+
 export default new Request();
 

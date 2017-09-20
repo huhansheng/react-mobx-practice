@@ -1,4 +1,5 @@
 
-export const HOST = '';
+import { HOST } from './api.config';
 
-export const GET_HELLO_WORLD_URL = `${HOST}api/server`;
+export const GET_HELLO_WORLD_URL = `${HOST}server`;
+

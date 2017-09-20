@@ -12,4 +12,4 @@
 ### 开发环境
 create-react-app搭建的环境，增加sass和cssModules，json-server前端模拟接口  
 sass利用node-sass-chokidar编译，不再用node-sass  
-.babelrc配置react-native-stage-0，支持装潢器的react-native-stage-0
+.babelrc配置react-native-stage-0，支持装潢器
