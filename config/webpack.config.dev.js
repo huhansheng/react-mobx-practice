@@ -32,22 +32,12 @@ module.exports = {
   // These are the "entry points" to our application.
   // This means they will be the "root" imports that are included in JS bundle.
   // The first two entry points enable "hot" CSS and auto-refreshes for JS.
-  entry: {
-    main: [
-      require.resolve('./polyfills'),
-      require.resolve('react-dev-utils/webpackHotDevClient'),
-      paths.appIndexJs
-    ],
-    commons: [
-      'react',
-      'react-dom',
-      'react-router',
-      'mobx',
-      'mobx-react',
-      'material-ui',
-      'whatwg-fetch'
-    ]
-  },
+  entry: [
+    require.resolve('./polyfills'),
+    require.resolve('react-dev-utils/webpackHotDevClient'),
+    paths.appIndexJs,
+    
+  ],
   output: {
     // Next line is not used in dev but WebpackDevServer crashes without it:
     path: paths.appBuild,
