@@ -6,12 +6,13 @@ import Menu from '../../component/Menu'
 import TabBar from '../../component/TabBar'
 import ButtonGroup from '../../component/ButtonGroup'
 import { buttonList, tabBarItems, navList } from './user.config';
+import userService from '../../service/user';
 
 const appBarSty = {
 	background: '#FF4081'
 };
 
-@inject(state => ({ user: state.store.User }))
+@inject(state => ({ user: state.store.user }))
 @observer
 class User extends React.Component {
 	constructor(props) {
@@ -19,7 +20,7 @@ class User extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.user.getUserInfo();
+		// this.props.user.getUserInfo();
 	}
 
 
@@ -38,7 +39,8 @@ class User extends React.Component {
 	}
 
 	toIntroduce() {
-        this.props.user.setUserName({ name: 'handsome' });
+		console.log(this.props.user,"===")
+        userService.submitUserInfo(this.props.user, { name: 'handsome' });
 	}
 
 	toShow() {
@@ -62,12 +64,9 @@ class User extends React.Component {
 				</div>
 
 				<div className={_style.containerContent}>
-					<span className={_style.icon}><i className="icon icon-zjjx"></i>icon svg</span> 
 					<ButtonGroup itemList={buttonList} onClick={this.onClickBtn.bind(this)} />
 				</div>
-				<div>
-					<i className="icon icon-zjjx"></i>icon svg 
-				</div>
+
 				<div className={_style.footer}>
 					<TabBar defaultSelectedIndex={1} itemList={tabBarItems} />
 				</div>

@@ -1,9 +1,7 @@
-import User from '../mobx/user';
-import About from '../mobx/about';
+import mobxs from '../mobx';
 
 const store = {
-  User,
-  About
+  ...mobxs
 };
 
 export default store;

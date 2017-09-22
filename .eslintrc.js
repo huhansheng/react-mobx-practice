@@ -40,7 +40,9 @@ module.exports = {
     //react组件文件的后缀为.js airbnb is using .jsx
     'react/jsx-filename-extension': [2, {extensions: ['.js']}],
     //
-		"no-static-element-interactions": 0
+		"no-static-element-interactions": 0,
+    // 声明但未使用提示，但不算错误
+    "no-unused-vars": 0
   },
   "parserOptions":{
     "ecmaFeatures": {
