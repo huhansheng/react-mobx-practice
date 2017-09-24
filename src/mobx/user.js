@@ -12,8 +12,8 @@ class User {
 	@observable user;
 
 	constructor() {
-     autorun(() => {
-        console.log('user change',this.loading, this.user, this.list, this.userName);
+    autorun(() => {
+    	console.log('user change',this.loading, this.user, this.list, this.userName);
 	  });
 	}
 

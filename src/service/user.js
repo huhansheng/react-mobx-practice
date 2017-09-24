@@ -1,4 +1,5 @@
 import request from '../util/request';
+import actionMiddleware from '../util/actionMiddleware';
 import { GET_HELLO_WORLD_URL } from '../api/constants';
 
 const USER_INFO_LOAD = 'USER.USER_INFO_LOAD';
@@ -16,23 +17,6 @@ function submitUserInfo(store, payload) {
   	payload
   };
   actionMiddleware(store, action);
-}
-
-
-function actionMiddleware(store, action) {
-  const { type, promise, payload } = action;
-  if (!promise) {
-	  return store.next(type, payload);
-  }
-  const [LOAD, SUCESS, ERROR] = type;
-  store.next(LOAD);
-
-  promise.then(async (results) => {
-    const data = await results.json();
-    if (data.result) {
-      return store.next(SUCESS, { payload, result: data.result });
-    }
-  }).catch(() => store.next(ERROR, payload));
 }
 
 export default { getUserInfo, submitUserInfo };
