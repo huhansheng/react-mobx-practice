@@ -16,18 +16,14 @@ function subStrParams(url, body = {}) {
   return url;
 }
 
-function Request() {
-
-}
-
-Request.prototype.get = function (url, body = {}) {
+function get(url, body = {}) {
   return fetch(subStrParams(url, body = {}), {
     ...header,
     method: 'get'
   });
 };
 
-Request.prototype.post = function (url, body = {}) {
+function post(url, body = {}) {
   return fetch(url, {
     ...header,
     method: 'post',
@@ -35,7 +31,7 @@ Request.prototype.post = function (url, body = {}) {
   });
 };
 
-Request.prototype.put = function () {
+function put(url, body) {
   return fetch(url, {
     ...header,
     method: 'put',
@@ -43,7 +39,7 @@ Request.prototype.put = function () {
   });
 };
 
-Request.prototype.put = function () {
+function del(url, body) {
   return fetch(url, {
     ...header,
     method: 'delete'
@@ -51,5 +47,5 @@ Request.prototype.put = function () {
 };
 
 
-export default new Request();
+export default { get, post, put, del };
 

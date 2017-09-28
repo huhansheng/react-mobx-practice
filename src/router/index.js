@@ -1,9 +1,10 @@
+import Home from '../view/Home';
 import User from '../view/User';
 
 const routesConfig = [
   {
     path: '/',
-    component: User,
+    component: Home,
     childRoutes: [
       {
         path: '/login',

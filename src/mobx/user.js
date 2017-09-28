@@ -1,19 +1,14 @@
 import { observable, action, computed, autorun } from 'mobx';
 import userService from '../service/user';
 
-const USER_INFO_LOAD = 'USER.USER_INFO_LOAD';
-const USER_INFO_SUC = 'USER.USER_INFO_SUC';
-const USER_INFO_ERR = 'USER.USER_INFO_ERR';
-
 class User {
-	@observable loading = false;
-	@observable userName = 'hhs';
-	@observable list;
+	@observable loader = false;
 	@observable user;
+	@observable msg;
 
 	constructor() {
     autorun(() => {
-    	console.log('user change',this.loading, this.user, this.list, this.userName);
+    	console.log('user change',this.loader, this.user);
 	  });
 	}
 
@@ -21,21 +16,20 @@ class User {
 		return this.userName.length;
 	}
 
-	@action.bound next(type, action) {
-		switch (type) {
-			case USER_INFO_LOAD:
-				this.loading = true;
-				break;
-			case USER_INFO_SUC:
-				this.loading = true;
-				break;
-			case USER_INFO_ERR:
-				this.loading = true;
-				break;
-		}
+	@action.bound  onGetUser(params) {
+		this.loader = true;
+		fetch(url, params)
+		.then((res) => {
+			if(!res.json().error) {
+				this.loader = false;
+				this.user = res.json().result;
+			}else {
+				this.loader = false;
+				this.msg = 'error';
+			}
+		});
 	}
 }
-
 
 export default new User();
 
