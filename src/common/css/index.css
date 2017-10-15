@@ -2350,7 +2350,7 @@
     content: "\f4c2"; }
   :global .icon-ios-toggle:before {
     content: "\f4c3"; }
-  :global html, :global body, :global body > div {
+  :global html, :global body, :global #root, :global #root > div {
     margin: 0;
     padding: 0;
     height: 100%; }

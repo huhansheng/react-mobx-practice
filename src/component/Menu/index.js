@@ -11,13 +11,17 @@ const selectedSty = {
 class Menu extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      value: 0
+      value: props.defaultSelected
     };
+
+    this.onChangeItem = this.onChangeItem.bind(this);
   }
 
-  onChangeItem(value) {
+  onChangeItem(event, value) {
+    if (this.props.onClick) {
+      this.props.onClick(value);
+    }
     this.setState({ value });
   }
 
@@ -37,15 +41,14 @@ class Menu extends React.Component {
 
   render() {
     const menuItemList = this.createMenuItem();
-
     return (
       <IconMenu
-        onChange={this.onChangeItem.bind(this)}
+        onChange={this.onChangeItem}
         value={this.state.value}
         selectedMenuItemStyle={selectedSty}
         iconButtonElement={
           <IconButton><MoreVertIcon color="#fff" /></IconButton>
-			    }
+        }
       >
         { menuItemList }
       </IconMenu>

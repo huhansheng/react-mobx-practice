@@ -27,7 +27,6 @@ class ButtonGroup extends React.Component {
       return (
         <RaisedButton
           key={action}
-          backgroundColor={backgroundColor}
           disabled={disabled}
           label={label}
           icon={icon}
@@ -49,9 +48,5 @@ class ButtonGroup extends React.Component {
     );
   }
 }
-
-ButtonGroup.propTypes = {
-  itemList: React.PropTypes.array.isRequired
-};
 
 export default ButtonGroup;

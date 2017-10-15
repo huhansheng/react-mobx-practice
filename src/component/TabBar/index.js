@@ -12,7 +12,10 @@ class TabBar extends React.Component {
     };
   }
 
-  onSelectBar(selectedIndex) {
+  onSelectBar(selectedIndex, value) {
+    if (this.props.onClick) {
+      this.props.onClick(value);
+    }
     this.setState({ selectedIndex });
   }
 
@@ -20,14 +23,14 @@ class TabBar extends React.Component {
     const itemList = this.props.itemList || [];
 
     const list = itemList.map((item, index) => {
-      const { label, value, icon } = item;
+      const { id, label, value, icon } = item;
 
       return (
         <BottomNavigationItem
-          key={value}
+          key={id}
           label={label}
           icon={icon}
-          onClick={this.onSelectBar.bind(this, value)}
+          onClick={this.onSelectBar.bind(this, id, value)}
         />
       );
     });
@@ -46,9 +49,5 @@ class TabBar extends React.Component {
   }
 }
 
-TabBar.propTypes = {
-  defaultSelectedIndex: React.PropTypes.number,
-  itemList: React.PropTypes.array.isRequired
-};
 
 export default TabBar;

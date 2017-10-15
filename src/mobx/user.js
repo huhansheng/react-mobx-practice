@@ -1,5 +1,6 @@
 import { observable, action, computed, autorun } from 'mobx';
-import userService from '../service/user';
+import http from '../api/http';
+import { GET_USER_INFO_URL } from '../api/constants';
 
 class User {
 	@observable loader = false;
@@ -16,7 +17,24 @@ class User {
 		return this.userName.length;
 	}
 
-	@action.bound  onGetUser(params) {
+	@action.bound async requestUserInfo() {
+		try {
+			this.loader = true;
+			const data = await http.get(GET_USER_INFO_URL);
+			console.log(data,"==data=");
+			this.loader = false;
+			if(data.error) {
+				this.msg = data.message;
+				return;
+			}
+			this.user = data.result;
+		} catch(e) {
+			this.loader = false;
+			this.msg = '服务出错';
+		}
+	}
+
+	@action.bound onGetUser(params) {
 		this.loader = true;
 		fetch(url, params)
 		.then((res) => {

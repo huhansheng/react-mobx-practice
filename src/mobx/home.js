@@ -1,12 +1,28 @@
-import { observable, action } from 'mobx';
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import { observable, action, autorun } from 'mobx';
+import { lightBaseTheme, darkTheme, pinkTheme } from '../component/Theme';
 
 class Home {
   @observable theme = lightBaseTheme;
 
-  @action changeTheme(theme) {
-    this.theme = theme === 'light' ? lightBaseTheme : darkBaseTheme;
+  constructor() {
+    autorun(() => {
+      console.log("change theme", this.theme);
+    });
+  }
+  @action.bound changeTheme(theme) {
+    switch(theme) {
+    case 'light':
+      this.theme = lightBaseTheme;
+      break;
+    case 'dark':
+      this.theme = darkTheme;
+      break;
+    case 'pink':
+      this.theme = pinkTheme;
+      break;
+    default:
+      this.theme = lightBaseTheme;
+    }
   }
 }
 

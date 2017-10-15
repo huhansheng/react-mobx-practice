@@ -1,6 +1,17 @@
 {
   "server": {
+    "error": false, 
     "feedbackMsg": "success",
     "result": "Hello, world!"
+  },
+  "getUser": {
+    "error": false,
+    "message": "success",
+    "result": {
+      "name": "handsome",
+      "age": 23,
+      "sex": 1,
+      "interest": "looking book"
+    }
   }
 }

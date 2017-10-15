@@ -1,12 +1,11 @@
 import React from 'react';
 import { observer, inject } from 'mobx-react';
 import AppBar from 'material-ui/AppBar';
-import FlatButton from 'material-ui/FlatButton';
 import Menu from '../../component/Menu';
 import TabBar from '../../component/TabBar';
 import ButtonGroup from '../../component/ButtonGroup';
-import { buttonList, tabBarItems, navList } from './user.config';
-import _style from './index.scss';
+import { buttonList, tabBarItems, navList } from './home.config';
+import _style from './index.css';
 
 @inject(state => ({home: state.store.home}))
 @observer
@@ -16,27 +15,46 @@ class Home extends React.Component {
   }
 
   onChangeThene = () => {
-    this.props.home.changeTheme();
+    this.props.home.changeTheme('blue');
+  }
+
+  onClickBtn(action) {
+    switch(action) {
+    case 'introduce':
+      this.onChangeThene();
+      break;
+    case '':
+      break;
+    }
+  }
+
+  onSelectTheme(theme) {
+    this.props.home.changeTheme(theme);
+  }
+
+  onJump(pathname) {
+    console.log(pathname);
+    this.props.router.push(pathname);
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className={_style.container}>
         <div className={_style.containerNav}>
           <AppBar
-            style={appBarSty}
             title="react + mobx"
-            iconElementLeft={<IconButton onClick={this.onChangeThene} label="change dark theme" />}
-            iconElementRight={<Menu menuItemList={navList} />}
+            onLeftIconButtonTouchTap={this.onChangeThene}
+            iconElementRight={<Menu onClick={this.onSelectTheme.bind(this)} menuItemList={navList} />}
           />
         </div>
 
         <div className={_style.containerContent}>
-          <ButtonGroup itemList={buttonList} onClick={this.onClickBtn.bind(this)} />
+          { this.props.children }
         </div>
 
         <div className={_style.footer}>
-          <TabBar defaultSelectedIndex={1} itemList={tabBarItems} />
+          <TabBar defaultSelectedIndex={0} itemList={tabBarItems} onClick={this.onJump.bind(this)} />
         </div>
       </div>
     )

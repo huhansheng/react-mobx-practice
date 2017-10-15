@@ -5,18 +5,21 @@ const HomeIcon = (<SvgIcon><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" /></Svg
 
 const tabBarItems = [
   {
+    id: 0,
     label: '喜欢',
-    value: 0,
+    value: '/user',
     icon: HomeIcon
   },
   {
+    id: 1,
     label: '文章',
-    value: 1,
+    value: '/user2',
     icon: HomeIcon
   },
   {
+    id: 2,
     label: '我',
-    value: 2,
+    value: '/user3',
     icon: HomeIcon
   }
 ];
@@ -44,16 +47,16 @@ const buttonList = [
 
 const navList = [
   {
-    value: '1',
-    label: 'reload'
+    value: 'pink',
+    label: 'pink'
   },
   {
-    value: '2',
-    label: 'share'
+    value: 'dark',
+    label: 'dark'
   },
   {
-    value: '3',
-    label: 'close'
+    value: 'light',
+    label: 'light'
   }
 ];
 

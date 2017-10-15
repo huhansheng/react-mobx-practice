@@ -5,8 +5,6 @@ import AppBar from 'material-ui/AppBar';
 import Menu from '../../component/Menu'
 import TabBar from '../../component/TabBar'
 import ButtonGroup from '../../component/ButtonGroup'
-import { buttonList, tabBarItems, navList } from './user.config';
-import userService from '../../service/user';
 
 const appBarSty = {
 	background: '#FF4081'
@@ -20,7 +18,7 @@ class User extends React.Component {
 	}
 
 	componentDidMount() {
-		// this.props.user.getUserInfo();
+		this.props.user.requestUserInfo();
 	}
 
 
@@ -39,8 +37,7 @@ class User extends React.Component {
 	}
 
 	toIntroduce() {
-		console.log(this.props.user,"===")
-        userService.submitUserInfo(this.props.user, { name: 'handsome' });
+  	// userService.submitUserInfo(this.props.user, { name: 'handsome' });
 	}
 
 	toShow() {
@@ -51,30 +48,13 @@ class User extends React.Component {
 
 	}
 
-
 	render() {
 		return (
 			<div className={_style.container}>
-				<div className={_style.containerNav}>
-					<AppBar
-						style={appBarSty}
-						title="react + mobx"
-						iconElementRight={<Menu menuItemList={navList} />}
-					/>
-				</div>
-
-				<div className={_style.containerContent}>
-					<ButtonGroup itemList={buttonList} onClick={this.onClickBtn.bind(this)} />
-				</div>
-
-				<div className={_style.footer}>
-					<TabBar defaultSelectedIndex={1} itemList={tabBarItems} />
-				</div>
+				<span>hello, world</span>
 			</div>
 		)
 	}
 }
-
-
 
 export default User;
