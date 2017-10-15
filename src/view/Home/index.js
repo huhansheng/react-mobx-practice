@@ -4,6 +4,8 @@ import AppBar from 'material-ui/AppBar';
 import Menu from '../../component/Menu';
 import TabBar from '../../component/TabBar';
 import ButtonGroup from '../../component/ButtonGroup';
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem'
 import { buttonList, tabBarItems, navList } from './home.config';
 import _style from './index.css';
 
@@ -12,10 +14,14 @@ import _style from './index.css';
 class Home extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      open: false
+    }
   }
 
-  onChangeThene = () => {
-    this.props.home.changeTheme('blue');
+  onChangeThene = (open) => {
+    this.setState({ open: true });
   }
 
   onClickBtn(action) {
@@ -33,12 +39,10 @@ class Home extends React.Component {
   }
 
   onJump(pathname) {
-    console.log(pathname);
     this.props.router.push(pathname);
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className={_style.container}>
         <div className={_style.containerNav}>
@@ -56,6 +60,16 @@ class Home extends React.Component {
         <div className={_style.footer}>
           <TabBar defaultSelectedIndex={0} itemList={tabBarItems} onClick={this.onJump.bind(this)} />
         </div>
+
+        <Drawer
+          width={100}
+          docked={false}  
+          open={this.state.open}
+          onRequestChange={(open) => this.setState({open})}
+        >
+          <MenuItem>Menu Item</MenuItem>
+          <MenuItem>Menu Item 2</MenuItem>
+        </Drawer>
       </div>
     )
   }

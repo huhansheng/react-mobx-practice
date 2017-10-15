@@ -21,7 +21,6 @@ class User {
 		try {
 			this.loader = true;
 			const data = await http.get(GET_USER_INFO_URL);
-			console.log(data,"==data=");
 			this.loader = false;
 			if(data.error) {
 				this.msg = data.message;
