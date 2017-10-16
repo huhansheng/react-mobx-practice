@@ -10,19 +10,19 @@ const Book = (<BookIcon />);
 const tabBarItems = [
   {
     id: 0,
-    label: '喜欢',
+    label: 'love',
     value: '/user',
     icon: Home
   },
   {
     id: 1,
-    label: '书',
-    value: '/user2',
+    label: 'book',
+    value: '/SpaceReport',
     icon: Book
   },
   {
     id: 2,
-    label: '我',
+    label: 'me',
     value: '/user3',
     icon: Person
   }

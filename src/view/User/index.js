@@ -6,6 +6,8 @@ import Avatar from 'material-ui/Avatar';
 import Subheader from 'material-ui/Subheader';
 import Divider from 'material-ui/Divider';
 import ActionBook from 'material-ui/svg-icons/action/book';
+import ActionFavorite from 'material-ui/svg-icons/action/favorite';
+import ActionStar from 'material-ui/svg-icons/action/grade';
 import ActionPicture from 'material-ui/svg-icons/action/picture-in-picture';
 import {blue500, yellow600} from 'material-ui/styles/colors';
 import _style from './index.css';
@@ -33,8 +35,6 @@ class User extends React.Component {
 	handleExpandChange=(expanded) => {
 		this.setState({ expanded });
 	}
-
-
 
 	render() {
 		return (
@@ -70,14 +70,14 @@ class User extends React.Component {
 								leftAvatar={<Avatar icon={<ActionBook />} backgroundColor={blue500} />}
 							/>
 							<ListItem
-								primaryText="sport"
+								primaryText="favorite"
 								secondaryText="Jan 10, 2014"
-								leftAvatar={<Avatar icon={<ActionBook />} backgroundColor={blue500} />}
+								leftAvatar={<Avatar icon={<ActionFavorite />} backgroundColor={blue500} />}
 							/>
 							<ListItem
-							primaryText="sport"
+							primaryText="collection"
 							secondaryText="Jan 10, 2014"
-							leftAvatar={<Avatar icon={<ActionBook />} backgroundColor={blue500} />}
+							leftAvatar={<Avatar icon={<ActionStar />} backgroundColor={blue500} />}
 						/>
 						</List>
 					</CardText>

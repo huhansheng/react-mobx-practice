@@ -33,9 +33,8 @@ export default {
     disabledColor: fade(darkBlack, 0.3),
     pickerHeaderColor: cyan500,
     clockCircleColor: fade(darkBlack, 0.07),
-    shadowColor: fullBlack,
+    shadowColor: grey300,
   },
-
   appBar: {
     color: fullBlack
   },

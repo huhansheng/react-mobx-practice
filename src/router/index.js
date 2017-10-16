@@ -5,6 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Home from '../view/Home';
 import User from '../view/User';
+import SpaceReport from '../view/SpaceReport';
 
 @inject(state => ({home: state.store.home}))
 @observer
@@ -16,6 +17,7 @@ class Routers extends React.Component {
         <Router history={hashHistory}>
           <Route path="/" component={Home}>
             <Route path="/user" component={User} />
+            <Route path="/spaceReport" component={SpaceReport} />
           </Route>
         </Router>
       </MuiThemeProvider>
