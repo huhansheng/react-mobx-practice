@@ -1,5 +1,7 @@
 import React from 'react';
 import { observer, inject } from 'mobx-react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import AppBar from 'material-ui/AppBar';
 import Menu from '../../component/Menu';
 import TabBar from '../../component/TabBar';
@@ -44,6 +46,8 @@ class Home extends React.Component {
 
   render() {
     return (
+      <MuiThemeProvider muiTheme={getMuiTheme(this.props.home.theme)}>
+      
       <div className={_style.container}>
         <div className={_style.containerNav}>
           <AppBar
@@ -71,6 +75,7 @@ class Home extends React.Component {
           <MenuItem>Menu Item 2</MenuItem>
         </Drawer>
       </div>
+      </MuiThemeProvider>
     )
   }
 }
