@@ -47,34 +47,33 @@ class Home extends React.Component {
   render() {
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(this.props.home.theme)}>
-      
-      <div className={_style.container}>
-        <div className={_style.containerNav}>
-          <AppBar
-            title="react + mobx"
-            onLeftIconButtonTouchTap={this.onChangeThene}
-            iconElementRight={<Menu onClick={this.onSelectTheme.bind(this)} menuItemList={navList} />}
-          />
-        </div>
+        <div className={_style.container}>
+          <div className={_style.containerNav}>
+            <AppBar
+              title="react + mobx"
+              onLeftIconButtonTouchTap={this.onChangeThene}
+              iconElementRight={<Menu onClick={this.onSelectTheme.bind(this)} menuItemList={navList} />}
+            />
+          </div>
 
-        <div className={_style.containerContent}>
-          { this.props.children }
-        </div>
+          <div className={_style.containerContent}>
+            { this.props.children }
+          </div>
 
-        <div className={_style.footer}>
-          <TabBar defaultSelectedIndex={0} itemList={tabBarItems} onClick={this.onJump.bind(this)} />
-        </div>
+          <div className={_style.footer}>
+            <TabBar defaultSelectedIndex={0} itemList={tabBarItems} onClick={this.onJump.bind(this)} />
+          </div>
 
-        <Drawer
-          width={100}
-          docked={false}  
-          open={this.state.open}
-          onRequestChange={(open) => this.setState({open})}
-        >
-          <MenuItem>Menu Item</MenuItem>
-          <MenuItem>Menu Item 2</MenuItem>
-        </Drawer>
-      </div>
+          <Drawer
+            width={100}
+            docked={false}  
+            open={this.state.open}
+            onRequestChange={(open) => this.setState({open})}
+          >
+            <MenuItem>Menu Item</MenuItem>
+            <MenuItem>Menu Item 2</MenuItem>
+          </Drawer>
+        </div>
       </MuiThemeProvider>
     )
   }
